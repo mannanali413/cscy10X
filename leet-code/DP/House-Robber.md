@@ -45,11 +45,12 @@ Corresponding to each of the num in nums, the 2-D maintains the sum if a num is 
 
 ``` python
 def rob(nums):
-    dp = [[0,0] for j in range(nums.length + 1)]
-    for i in range(1, nums.length+1):
+    nums_length = len(nums)
+    dp = [[0,0] for j in range(nums_length + 1)]
+    for i in range(1, nums_length+1):
         dp[i][0] = max(dp[i - 1][0], dp[i - 1][1])
-        dp[i][1] = num[i - 1] + dp[i - 1][0]
-    return max(dp[num.length][0], dp[num.length][1])
+        dp[i][1] = nums[i - 1] + dp[i - 1][0]
+    return max(dp[nums_length][0], dp[nums_length][1])
 ```
 
 In dp[][], the houses are numbered from 1 ... n, whereas in nums[], the houses are numbered 0 ... n-1.
